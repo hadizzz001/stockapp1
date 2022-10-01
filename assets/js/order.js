@@ -73,6 +73,10 @@ if(window.location.pathname == "/order"){
 
 
 
+            });
+            $.ajax(request).fail(function(response){
+                console.log("Failed!");
+                alert("Failed!");
             })
         }
 
