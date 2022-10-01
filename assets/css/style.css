@@ -147,9 +147,15 @@ box-shadow: none;
     
 }
 
-@media only screen and (max-width: 1024px){
+@media only screen and (max-width: 500px){
 table, thead, tbody, th, td, tr {
     display: revert;
+}
+a{
+    padding: 0.2em;
+    margin: 0.5em 0;
+    margin-right: 0.5em;
+    font-size: 13px;
 }
 }
 
