@@ -1,0 +1,251 @@
+<%-include('include/_header')%>
+
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+<div class="filter">
+    <a href="/"><i class="fas fa-angle-double-left"></i>Main Page</a>
+</div>
+        </div>
+
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update order</h2>
+            <span class="text-light">Use the below form to update the Order</span>
+        </div> 
+
+
+
+
+
+
+
+
+
+
+        
+<form action="/api/users" method="POST" id="update_user">
+    <div class="new_user">
+       <div class="form-group">
+           <label for="clientName" class="text-light">Client Name</label> 
+           <input type="hidden" id="itmid" name="itm_id" value="">
+           <input type="hidden" id="userid" name="id" value="<%= user._id %>">
+           <input type="hidden" id="selecteditem" name="selecteditem" value="<%= user.item %>" >
+           <input type="text" name="clientName" value="<%= user.clientName %>" placeholder="Client Name" required>
+       </div> 
+
+       <div class="form-group"> 
+        <label for="item" class="text-light">Item</label>  
+        <select name="item" id="sltid" required>  
+         <% for(var i = 0; i < items.length;i++){ %> 
+                <option><%= items[i].itemName %></option>  
+            <% } %>
+       </select> 
+    </div>
+
+    
+    <div class="form-group">  
+        <select name="itemidx" id="itemidx" hidden>  
+         <% for(var i = 0; i < items.length;i++){ %> 
+                <option><%= items[i].price %></option>  
+            <% } %>
+       </select> 
+    </div>
+
+    <div class="form-group">  
+        <select name="itemqty" id="itemqty" hidden>  
+         <% for(var i = 0; i < items.length;i++){ %> 
+                <option><%= items[i].instock %></option>  
+            <% } %>
+       </select> 
+    </div>
+
+    <div class="form-group">  
+        <select name="itemid" id="itemid" hidden>  
+         <% for(var i = 0; i < items.length;i++){ %> 
+                <option><%= items[i]._id %></option>  
+            <% } %>
+       </select> 
+    </div>
+
+       
+       <div class="form-group">
+           <label for="qty" class="text-light">QTY</label> 
+           <input type="number" id="qty" name="qty" min="1" value="<%= user.qty %>" placeholder="Number of Items" required>
+       </div>
+
+       <div class="form-group">
+        <label for="price" class="text-light">Unit Amount($)</label> 
+        <input type="text" name="price" id="price" value="<%= user.price %>" readonly>
+    </div>
+
+       <div class="form-group">
+           <label for="total" class="text-light">Total Amount($)</label> 
+           <input type="text" id="total" name="total" value="<%= user.total %>" readonly>
+       </div>
+
+       <div class="form-group"> 
+        <input type="text" id="instock" name="instock" value="" hidden>  
+    </div>
+
+       <div class="form-group">
+           <button type="submit" class="btn text-dark update">save</button>
+       </div>
+       
+    </div>
+</form>
+
+
+    </div>
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+<script>
+    const urll= "http://localhost:3000"; 
+    var idx,total ,price,qty,max,itmid,selecteditem, fqty, firstitm,firststck;
+
+    window.addEventListener('load', function () {   
+    fqty =  $("#qty").val(); 
+    selecteditem = $('#selecteditem').val();
+    document.getElementById('sltid').value = selecteditem;
+    idx = document.getElementById('sltid').selectedIndex;    
+
+    $("select#itemidx").prop('selectedIndex', idx);
+    $("select#itemqty").prop('selectedIndex', idx);
+    $("select#itemid").prop('selectedIndex', idx);
+    price = $('select#itemidx').find(":selected").text();
+    max = $('select#itemqty').find(":selected").text();
+    firststck = $('select#itemqty').find(":selected").text();
+    itmid = $('select#itemid').find(":selected").text();
+    firstitm = $('select#itemid').find(":selected").text();
+    const input = document.getElementById("qty");
+    input.setAttribute("max",max); 
+    qty =  $("#qty").val();  
+    $("#price").val(price);
+    $("#itmid").val(itmid); 
+
+    const inputHandler = function(e) { 
+        qty =  e.target.value;
+        total = qty * price;
+        $("#total").val(total);
+        if(fqty < qty){
+            $("#instock").val(parseInt(max) - parseInt(qty - fqty) );
+        }
+        else if(fqty > qty){  
+            $("#instock").val(parseInt(max) + parseInt(fqty - qty) );
+        }
+        else if(fqty == qty){
+            $("#instock").val(parseInt(max));
+        }
+    }
+    
+    input.addEventListener("input", inputHandler); 
+
+ 
+}) 
+
+$('#sltid').change(function() { 
+    idx = this.selectedIndex; 
+    $("#qty").val(0); 
+    $("#total").val(0);     
+
+    $("select#itemidx").prop('selectedIndex', idx);
+    $("select#itemqty").prop('selectedIndex', idx);
+    $("select#itemid").prop('selectedIndex', idx);
+    price = $('select#itemidx').find(":selected").text();
+    max = $('select#itemqty').find(":selected").text();
+    itmid = $('select#itemid').find(":selected").text();
+    const input = document.getElementById("qty");
+    input.setAttribute("max",max); 
+    qty =  $("#qty").val();  
+    $("#price").val(price);
+    $("#itmid").val(itmid);  
+
+const inputHandler = function(e) { 
+        qty =  e.target.value;
+        total = qty * price;
+        $("#total").val(total);
+
+        if(itmid == firstitm){
+            if(fqty < qty){
+                $("#instock").val(parseInt(max) - parseInt(qty - fqty) );
+            }
+            else if(fqty > qty){  
+                $("#instock").val(parseInt(max) + parseInt(fqty - qty) );
+            }
+            else if(fqty == qty){
+                $("#instock").val(parseInt(max));
+            }
+        }
+        else if(itmid != firstitm){
+            $("#instock").val(parseInt(max) - parseInt(qty) );
+        }
+}
+    
+    input.addEventListener("input", inputHandler);
+
+
+});
+
+
+
+
+
+
+
+
+
+
+$("#update_user").submit(function(event){
+    event.preventDefault();
+    var unindexed_array = $(this).serializeArray(); 
+    var data = {}
+    var data1 = {
+        "instock": parseInt(firststck) + parseInt(fqty)
+    } 
+    console.log(data1.instock);
+    $.map(unindexed_array, function(n, i){
+        data[n['name']] = n['value']
+    }) 
+    
+    var request = {
+        "url" : `${urll}/api/users/${data.id}`,
+        "method" : "PUT",
+        "data" : data
+    } 
+    var request2 = {
+        "url" : `${urll}/api/items/${firstitm}`,
+        "method" : "PUT",
+        "data" : data1
+    } 
+
+    var request3 = {
+        "url" : `${urll}/api/items/${data.itemid}`,
+        "method" : "PUT",
+        "data" : data
+    } 
+
+    $.ajax(request).done(function(response1){  
+    })
+
+    $.ajax(request2).done(function(response2){     
+    })
+
+    $.ajax(request3).done(function(response3){  
+        alert("Order updated Successfully!"); 
+        window.location.replace("/order");
+    })
+})
+  
+
+
+
+
+</script>
+
+ 
+
+
+
+</body>
+</html>

@@ -1,0 +1,36 @@
+ 
+
+
+
+
+
+
+<form action="/api/items" method="POST" id="add_item"> 
+    <div class="new_user">
+       <div class="form-group">
+           <label for="itemName" class="text-light">Item Name</label>
+           <input type="hidden" name="id" value="">
+           <input type="text" name="itemName" value="" placeholder="Item Name" required>
+       </div>  
+
+        <div class="form-group"> 
+            <label for="instock" class="text-light">Instock</label> 
+            <input type="text" name="instock" value="" placeholder="instock" required>  
+        </div>
+
+       
+       <div class="form-group">
+           <label for="price" class="text-light">Price</label> 
+           <input type="text" name="price" value="" placeholder="Price of Items" required>
+       </div> 
+
+       <div class="form-group">
+           <button type="submit" class="btn text-dark update">save</button>
+       </div>
+       
+    </div>
+</form>
+
+
+
+

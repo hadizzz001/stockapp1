@@ -1,0 +1,52 @@
+
+<%-include('include/_header')%>
+
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+            <a href="/add_user" class="border-shadow btnorder">
+                <span class="text-gradient">New Order <i class="fa-solid fa-cart-shopping"></i></span>
+            </a>
+            <a href="/upload2" class="border-shadow btnorder">
+                <span class="text-gradient">Add Items <i class="fa-solid fa-box"></i></span>
+            </a> 
+ 
+        </div>
+
+        <!-- <div class="box-nav d-flex justify-between" style="float: right;"> 
+            <input type="text" class="text" name="search">
+            <a href="/search" class="border-shadow btnorder" style="padding: 0.5em;margin: 0em 0.5em;">
+                <span class="text-gradient">Search<i class="fa-solid fa-magnifying-glass"></i></span>
+            </a> 
+        </div> -->
+
+        <div class="box-nav d-flex justify-between" style="float: right;">   
+            <a href="/order" class="border-shadow btnorder" style="margin-right: 0;">
+                <span class="text-gradient">View Orders <i class="fa-solid fa-list"></i></span>
+            </a>
+ 
+        </div>
+
+        <form action="/item"method="POST">
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>  
+                        <th>Item Name</th> 
+                        <th>Item Image</th> 
+                        <th>Instock</th> 
+                        <th>Item Price($)</th>  
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    <%-include('include/_show2')%>
+                </tbody>
+            </table>
+        </form>
+        
+        
+
+    </div>
+</main>
+
+<%-include('include/_footer')%>

@@ -1,0 +1,47 @@
+<%-include('include/_header')%>
+
+<main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+<div class="filter">
+    <a href="/"><i class="fas fa-angle-double-left"></i>Main Page</a>
+</div>
+        </div>
+
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Item</h2>
+            <span class="text-light">Use the below form to update items</span>
+        </div>
+
+       
+        <form method="POST" id="update_item">
+            <div class="new_user">
+               <div class="form-group">
+                   <label for="itemName" class="text-light">Item Name</label>
+                   <input type="hidden" name="id" value="<%= item._id %>">
+                   <input type="text" name="itemName" value="<%= item.itemName %>" placeholder="Item Name" required>
+               </div>
+        
+               <div class="form-group">
+                   <label for="instock" class="text-light">Instock</label> 
+                   <input type="number" name="instock" value="<%= item.instock %>" placeholder="Instock" required>
+               </div>
+        
+               
+               <div class="form-group">
+                   <label for="price" class="text-light">Item price($)</label> 
+                   <input type="number" name="price" value="<%= item.price %>" placeholder="Price of item" required>
+               </div> 
+        
+               <div class="form-group">
+                   <button type="submit" class="btn text-dark update">save</button>
+               </div>
+               
+            </div>
+        </form>
+
+
+    </div>
+</main>
+
+<%-include('include/_footer')%>

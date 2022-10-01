@@ -1,0 +1,84 @@
+ 
+
+
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+
+<form action="/api/users" method="POST" id="add_user">
+    <div class="new_user">
+       <div class="form-group">
+           <label for="clientName" class="text-light">Client Name</label>
+           <input type="hidden" id="itmid" name="itm_id" value="">
+           <input type="hidden" id="odate" name="odate" value="">
+           <input type="text" name="clientName" value="" placeholder="Client Name" required>
+       </div> 
+
+       <div class="form-group"> 
+        <label for="item" class="text-light">Item</label>  
+        <select name="item" id="sltid" required> 
+            <option disabled selected value> -- select an option -- </option>
+         <% for(var i = 0; i < items.length;i++){ %> 
+                <option><%= items[i].itemName %></option>  
+            <% } %>
+       </select> 
+    </div>
+
+    
+    <div class="form-group">  
+        <select name="itemidx" id="itemidx" hidden> 
+            <option disabled selected value> -- select an option -- </option>
+         <% for(var i = 0; i < items.length;i++){ %> 
+                <option><%= items[i].price %></option>  
+            <% } %>
+       </select> 
+    </div>
+
+    <div class="form-group">  
+        <select name="itemqty" id="itemqty" hidden> 
+            <option disabled selected value> -- select an option -- </option>
+         <% for(var i = 0; i < items.length;i++){ %> 
+                <option><%= items[i].instock %></option>  
+            <% } %>
+       </select> 
+    </div>
+
+    <div class="form-group">  
+        <select name="itemid" id="itemid" hidden> 
+            <option disabled selected value> -- select an option -- </option>
+         <% for(var i = 0; i < items.length;i++){ %> 
+                <option><%= items[i]._id %></option>  
+            <% } %>
+       </select> 
+    </div>
+     
+       
+       <div class="form-group">
+           <label for="qty" class="text-light">QTY</label> 
+           <input type="number" id="qty" name="qty" value="" min="1" placeholder="Number of Items" required>
+       </div>
+
+       <div class="form-group">
+        <label for="price" class="text-light">Unit Amount($)</label> 
+        <input type="text" name="price" id="price" value="" readonly>
+    </div>
+
+       <div class="form-group">
+           <label for="total" class="text-light">Total Amount($)</label> 
+           <input type="text" id="total" name="total" value="" readonly>
+       </div>
+
+       <div class="form-group"> 
+        <input type="text" id="instock" name="instock" value="" hidden>   
+    </div>
+
+       <div class="form-group">
+           <button type="submit" class="btn text-dark update">save</button>
+       </div>
+       
+    </div>
+</form>
+
+ 

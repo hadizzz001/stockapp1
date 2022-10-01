@@ -1,0 +1,23 @@
+
+
+<% for(var i = 0; i < users.length;i++){ %>
+
+<tr>  
+    <td><%= users[i].clientName %></td> 
+    <td><%= users[i].item %></td>
+    <td><%= users[i].qty %></td>
+    <td><%= users[i].price %></td>
+    <td><%= users[i].total %></td> 
+    <td><%= users[i].odate %></td> 
+    <td>
+        <a href="/update_user?id=<%= users[i]._id %>"class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id="<%= users[i]._id %>, <%= users[i].qty %>, <%= users[i].itm_id %>">
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+    </td>
+</tr>
+<% } %>
+
+

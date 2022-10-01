@@ -1,0 +1,60 @@
+<form action="/api/items" method="POST" id="add_user"  >
+     
+ 
+     
+    <div class="form-group">  
+        <select name="" id="sltid" hidden> 
+         <% for(var i = 0; i < imgurl.length;i++){ %> 
+                <option><%= imgurl[i].imgurl %></option>  
+            <% } %>
+       </select>
+    </div>
+ 
+
+    <div class="new_user">
+        <div class="form-group">
+            <label for="imgurl" class="text-light">Item Image</label>  
+            <input type="text" id="imgtxt" name="imgurl" class="text" hidden>
+            <img id="imgidz"  src="" width="10%" height="10%">
+        </div>  
+
+        <div class="form-group">
+            <label for="itemName" class="text-light">Item Name</label>
+            <input type="hidden" name="id" value="">
+            <input type="text" name="itemName" value="" placeholder="Item Name" required>
+        </div>  
+
+
+ 
+         <div class="form-group"> 
+             <label for="instock" class="text-light">Instock</label> 
+             <input type="number" name="instock" min="1" placeholder="instock" required> 
+         </div>
+ 
+        
+        <div class="form-group">
+            <label for="price" class="text-light">Price($)</label> 
+            <input type="number" name="price" value="" placeholder="Price of Items" required>
+        </div> 
+ 
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">save</button>
+        </div>
+        
+     </div>
+    
+ 
+</form> 
+
+<script>
+    
+ 
+
+    window.addEventListener('load', function () {
+        var lastValue = $('#sltid option:last-child').val(); 
+        document.getElementById("imgidz").src = lastValue; 
+        document.getElementById('imgtxt').value =lastValue;
+})
+</script>
+
+ 

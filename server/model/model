@@ -1,0 +1,22 @@
+const mongoose = require('mongoose');
+
+var schema = new mongoose.Schema({
+    clientName: {
+        type: String,
+        require: true
+    },
+    item: {
+        type: String,
+        require:true
+    },
+    itm_id: String,
+    qty: Number,
+    price: Number,
+    total: Number,
+    odate: String
+}) 
+
+const Userdb = mongoose.model('userdb',schema);
+module.exports = Userdb;
+
+ 
