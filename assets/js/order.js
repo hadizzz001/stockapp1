@@ -75,8 +75,15 @@ if(window.location.pathname == "/order"){
 
             });
             $.ajax(request).fail(function(response){
-                console.log("Failed!");
-                alert("Failed!");
+                var request3 = {
+                    "url" : `${urll}/api/users/${id}`,
+                    "method" : "DELETE"
+                }
+
+                $.ajax(request3).done(function(response){ 
+                    console.log("Data Deleted Successfully! "); 
+                    location.reload();
+                })
             })
         }
 
