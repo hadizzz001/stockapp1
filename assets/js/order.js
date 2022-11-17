@@ -2,7 +2,7 @@
 const urll= "https://stockapp1-ejs.herokuapp.com"; 
 
 
-
+location.reload(true);
 $("#update_user").submit(function(event){
     event.preventDefault();
     var unindexed_array = $(this).serializeArray();
