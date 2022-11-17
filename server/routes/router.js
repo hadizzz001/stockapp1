@@ -102,6 +102,17 @@ route.get('/api/upload2', controller4.find);
  route.get('/api/urls',controller5.find);
 
 
+ /**
+ * @description add url1
+ * @method GET/add_url1
+ */
+  route.get('/add_url1',services.add_url1) 
+
+  //API
+  route.post('/api/urls',controller5.create);
+  route.get('/api/urls',controller5.find);
+ 
+
  
 
 module.exports=route
