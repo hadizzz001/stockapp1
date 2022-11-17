@@ -124,13 +124,17 @@ exports.add_url = (req,res) =>{
 }
 
 
-exports.add_url1 = (req,res) =>{
-    axios.get(`${process.env.LOCALURL}/api/urls`)
-    .then(function(response){ 
-        res.render('add_url1',{imgurl:response.data});
-    })
-    .catch(err=>{
-        res.send(err);
-    }) 
+// exports.add_url1 = (req,res) =>{
+//     axios.get(`${process.env.LOCALURL}/api/urls`)
+//     .then(function(response){ 
+//         res.render('add_url1');
+//     })
+//     .catch(err=>{
+//         res.send(err);
+//     }) 
+// }
+
+exports.add_url1 = (req,res)=> {
+    res.render('add_url1');
 }
  
