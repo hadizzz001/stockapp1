@@ -6,7 +6,8 @@ const controller = require('../controller/controller');
 const controller2 = require('../controller/controller2'); 
 const controller4 = require('../controller/controller4'); 
 const controller5 = require('../controller/controller5'); 
- 
+const controller6 = require('../controller/controller6'); 
+
 
 
 
@@ -109,8 +110,8 @@ route.get('/api/upload2', controller4.find);
   route.get('/add_url1',services.add_url1) 
 
   //API
-  route.post('/api/urls',controller5.create);
-  route.get('/api/urls',controller5.find);
+  route.post('/api/urls',controller6.create);
+  route.get('/api/urls',controller6.find);
  
 
  
