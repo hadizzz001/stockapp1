@@ -9,11 +9,12 @@
 
 <form action="/api/users" method="POST" id="add_user">
     <div class="new_user">
+        <input type="hidden" id="itmid" name="itm_id" value="">
+        <input type="hidden" id="odate" name="odate" value="">
        <div class="form-group">
            <label for="clientName" class="text-light">Client Name</label>
-           <input type="hidden" id="itmid" name="itm_id" value="">
-           <input type="hidden" id="odate" name="odate" value="">
-           <input type="text" id="clientName" name="clientName" value="" placeholder="Client Name" autofocus required>
+
+           <input type="text" id="clientName" name="clientName" value="" placeholder="Client Name">
        </div> 
 
        <div class="form-group"> 
