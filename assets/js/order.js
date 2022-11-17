@@ -2,13 +2,7 @@
 const urll= "https://stockapp1-ejs.herokuapp.com"; 
 
 
-window.onload = function() { 
-    $('#clientName').attr('readonly', false);
-    if(!window.location.hash) {
-        window.location = window.location + '#loaded';
-        window.location.reload();
-    }
-}
+ 
 
 $("#update_user").submit(function(event){
     event.preventDefault();
