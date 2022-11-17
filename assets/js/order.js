@@ -174,3 +174,7 @@ $("#add_user").submit(function(event){
 
 })
 
+window.onload = function() {
+    alert(123);
+    //var input = document.getElementById("myinputbox").focus();
+  }
