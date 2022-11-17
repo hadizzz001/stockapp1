@@ -3,6 +3,7 @@ const urll= "https://stockapp1-ejs.herokuapp.com";
 
 
 window.onload = function() {
+    $('#clientName').prop('disabled', false);
     if(!window.location.hash) {
         window.location = window.location + '#loaded';
         window.location.reload();
