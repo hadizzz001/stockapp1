@@ -102,12 +102,7 @@ app.post('/upload2', upload.single('img') , async (req, res, next)=>{
 
 
 
-app.post('/upload3', async (req, res, next)=>{  
-    res.redirect('/') 
-
-});
  
-
 
 var port = process.env.PORT || '3000'
 app.listen(port, err => {
