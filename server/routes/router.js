@@ -5,8 +5,7 @@ const services = require('../services/render');
 const controller = require('../controller/controller');
 const controller2 = require('../controller/controller2'); 
 const controller4 = require('../controller/controller4'); 
-const controller5 = require('../controller/controller5'); 
-const controller6 = require('../controller/controller6'); 
+const controller5 = require('../controller/controller5');  
 
 
 
