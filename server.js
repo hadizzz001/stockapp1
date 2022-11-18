@@ -100,8 +100,37 @@ app.post('/upload2', upload.single('img') , async (req, res, next)=>{
   
 
 
-// app.use('./STOCKAPP/views/index' , route1);
-// app.use('./STOCKAPP/views/index' , route1);
+
+
+app.post('/upload3', upload.single('img') , async (req, res, next)=>{  
+    const result = await cloudinary.uploader.upload(req.file.path); 
+    const post_details = {
+        title: req.body.title,
+        image: result.public_id
+    } 
+
+
+    if(!req.body){
+        res.status(400).send({message: "Can not be empty!"});
+        return;
+    }
+    const user = new Urldb({
+        imgurl: result.url
+    })
+
+    user
+    .save(user)
+    .then(data=>{ 
+        res.redirect('/') 
+
+    })
+    .catch(err =>{
+        res.status(500).send({
+            message: err.message || "Some error"
+        })
+    }) 
+
+});
  
 
 
