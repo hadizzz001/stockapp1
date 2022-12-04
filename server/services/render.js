@@ -137,4 +137,9 @@ exports.add_url = (req,res) =>{
 exports.add_url1 = (req,res)=> {
     res.render('add_url1');
 }
+
+
+exports.test = (req,res)=> {
+    res.render('test');
+}
  

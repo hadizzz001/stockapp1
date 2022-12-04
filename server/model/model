@@ -10,6 +10,8 @@ var schema = new mongoose.Schema({
         require:true
     },
     itm_id: String,
+    clientPhone: Number,
+    clientAddress: String,
     qty: Number,
     price: Number,
     total: Number,

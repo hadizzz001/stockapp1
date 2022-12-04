@@ -1,5 +1,5 @@
  
-const urll= "https://stockapp1-ejs.herokuapp.com"; 
+const urll= "http://localhost:3000"; 
 
 
  

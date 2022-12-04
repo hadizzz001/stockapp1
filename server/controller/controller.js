@@ -9,6 +9,8 @@ exports.create = (req, res)=>{
         clientName: req.body.clientName,
         item: req.body.item,
         itm_id: req.body.itm_id,
+        clientPhone: req.body.clientPhone,
+        clientAddress: req.body.clientAddress,
         qty: req.body.qty,
         price: req.body.price,
         total: req.body.total,

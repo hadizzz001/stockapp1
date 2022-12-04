@@ -102,6 +102,16 @@ route.get('/api/upload2', controller4.find);
  route.get('/api/urls',controller5.find);
 
 
+
+
+
+
+ /**
+ * @description test
+ * @method GET/test
+ */
+  route.get('/test',services.test) 
+ 
  
 
  

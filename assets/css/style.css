@@ -21,7 +21,7 @@ a{
 }
 
 .container{
-    max-width: 1024px;
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -45,8 +45,8 @@ flex-wrap: wrap;
 }
 
 .border-shadow{
-    border: 1px solid var(--border-btn);
-    box-shadow: 1px 3px 10px #c0c0c0;
+    /* border: 1px solid var(--border-btn);
+    box-shadow: 1px 3px 10px #c0c0c0; */
 }
 
 .text-dark{
@@ -63,7 +63,7 @@ flex-wrap: wrap;
 }
 
 .text-gradient{
-    background: linear-gradient(to right, #494949 , #a3a3a3);
+    background: linear-gradient(to right, #000000 , #000000);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -107,9 +107,9 @@ table{
 }
 
 .table td > a.btn{
-    padding: .3em 1em;
-    font-size: 1.1em;
-    margin: 0 .2em;
+    padding: 0.1em 0.1em;
+    font-size: .8em;
+    margin: 0 0.2em;
 }
 
 .table tr:hover{

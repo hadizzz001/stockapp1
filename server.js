@@ -108,7 +108,7 @@ var port = process.env.PORT || '3000'
 app.listen(port, err => {
     if (err)
         throw err
-    console.log(`Server is running on ${process.env.LOCALURL}`)
+        console.log(`Server is running on http://localhost:` + port)
 })
 
 
